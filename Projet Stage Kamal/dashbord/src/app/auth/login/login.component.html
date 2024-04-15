@@ -1,0 +1,45 @@
+<div class="b_body">
+  <div class="container">
+    <div mat-dialog-title>
+      <h1>Login Page</h1>
+    </div>
+    <form [formGroup]="loginForm" action="" (ngSubmit)="onloginsubmit()">
+      <div mat-dialog-content class="content">
+        <!-- ROW 1 -->
+        <div class="row">
+          <mat-form-field appearance="outline">
+            <mat-label>Username</mat-label>
+            <input matInput type="text" placeholder="Ex. Kamal" formControlName="username" />
+            <mat-error *ngIf="loginForm.controls['username'].errors?.['required']">Username is Required.</mat-error>
+            <mat-error *ngIf="loginForm.controls['username'].errors?.['minlength']">Invalid Username.</mat-error>
+            <mat-error></mat-error>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" placeholder="Ex. kA+mal@_2" formControlName="password" id="input_password" />
+            <button id="button_password" matSuffix mat-icon-button aria-label="Clear" type="button" (click)="ShowPassword()">
+              <mat-icon id="icon_password">visibility_off</mat-icon>
+            </button>
+            <mat-error *ngIf="loginForm.controls['password'].errors?.['required']">Password is Required.</mat-error>
+            <mat-error *ngIf="loginForm.controls['password'].errors?.['pattern']">Invalid Password.</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div mat-dialog-actions class="action">
+        <button style="margin: 0px 15px 0px 55px; " mat-raised-button color="warn" type="button">
+          Microsoft
+        </button>
+        <button style="padding: 25px 62px 25px 62px;" mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid" id="btn">
+          SignIn
+        </button>
+      </div>
+    </form>
+    <br>
+    <div mat-dialog-content>
+      <i id="log_out" (click)="Register()">Create account?</i>
+      <i id="log_out" (click)="ForgetPassword()">Forgot Password?</i>
+    </div>
+  </div>
+</div>

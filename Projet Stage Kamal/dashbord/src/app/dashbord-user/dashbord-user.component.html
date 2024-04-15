@@ -1,0 +1,84 @@
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link
+  href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+  rel="stylesheet"
+/>
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+<div class="sidebar" [ngClass]="{ open: isOpen, '': !isOpen }">
+  <div class="logo-details">
+    <i class="fa fa-tachometer icon"></i>
+    <div class="logo_name">Dashboard</div>
+    <i
+      class="bx"
+      [ngClass]="{ 'bx-menu-alt-right': isOpen, 'bx-menu': !isOpen }"
+      id="btn"
+      (click)="ToggleOpen()"
+    ></i>
+  </div>
+  <ul class="nav-list">
+    <li>
+      <i class="bx bx-search"></i>
+      <input type="text" placeholder="Search..." />
+      <span class="tooltip">Search</span>
+    </li>
+    <li>
+      <a routerLink="Cards" routerLinkActive="holde">
+        <i class="bx bx-grid-alt"></i>
+        <span class="links_name">Dashboard</span>
+      </a>
+      <span class="tooltip">Dashboard</span>
+    </li>
+    <li>
+      <a routerLink="Gestion_des_conges" routerLinkActive="holde">
+        <i class="fa fa-plane"></i>
+        <span class="links_name">Gestion des congés</span>
+      </a>
+      <span class="tooltip">Gestion des congés</span>
+    </li>
+    <li>
+      <a routerLink="Conge_Accept" routerLinkActive="holde">
+        <i class="fa fa-check-circle-o"></i>
+        <span class="links_name">Demandes Acceptées</span>
+      </a>
+      <span class="tooltip">Demandes Acceptées</span>
+    </li>
+    <li>
+      <a routerLink="Conge_Waiting" routerLinkActive="holde">
+        <i class="fa fa-clock-o"></i>
+        <span class="links_name">Demandes En Attente</span>
+      </a>
+      <span class="tooltip">Demandes En Attente</span>
+    </li>
+    <li>
+      <a routerLink="Conge_refuse" routerLinkActive="holde">
+        <i class="fa fa-times-circle-o"></i>
+        <span class="links_name">Demandes Refuse</span>
+      </a>
+      <span class="tooltip">Demandes Refuse</span>
+    </li>
+    <li>
+      <a href="#">
+        <i class="bx bx-cog"></i>
+        <span class="links_name">Setting</span>
+      </a>
+      <span class="tooltip">Setting</span>
+    </li>
+    <li class="profile">
+      <div class="profile-details">
+        <img src="../../../assets/img/profile.jpg" alt="profileImg" />
+        <div class="name_job">
+          <div class="name">{{ UserFullName }}</div>
+          <div class="job">{{ status }}</div>
+        </div>
+      </div>
+      <i class="bx bx-log-out" id="log_out" (click)="log_out()"></i>
+    </li>
+  </ul>
+</div>
+<section class="home-section">
+  <router-outlet></router-outlet>
+</section>

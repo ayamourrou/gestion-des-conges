@@ -1,0 +1,49 @@
+<!-- <p>body-dashboard works!</p> -->
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+<section class="home-section">
+  <div class="text">Dashboard</div>
+  <br />
+  <a routerLink="../Gestion_des_conges" routerLinkActive="holde"
+    ><app-card-generique
+      h="Demandes Non Traité"
+      color="bg-c-blue"
+      icon="fa-check-circle-o"
+      i_span="{{ data_Nb_Conge_RS }}"
+      p="Congé"
+      p_span="Total number"
+    ></app-card-generique
+  ></a>
+  <a routerLink="../Conge_Accept" routerLinkActive="holde"
+    ><app-card-generique
+      h="Demandes Acceptées"
+      color="bg-c-green"
+      icon="fa-check-circle-o"
+      i_span="{{ data_Nb_Conge_A }}"
+      p="Congé"
+      p_span="Total number"
+    ></app-card-generique
+  ></a>
+  <a routerLink="../Conge_Waiting" routerLinkActive="holde">
+    <app-card-generique
+      h="Demandes En Attente"
+      color="bg-c-yellow"
+      icon="fa-clock-o"
+      i_span="{{ data_Nb_Conge_W }}"
+      p="Congé"
+      p_span="Total number"
+    ></app-card-generique>
+  </a>
+  <a routerLink="../Conge_refuse" routerLinkActive="holde">
+    <app-card-generique
+      h="Demandes Refuse"
+      color="bg-c-pink"
+      icon="fa-times-circle-o"
+      i_span="{{ data_Nb_Conge_R }}"
+      p="Congé"
+      p_span="Total number"
+    ></app-card-generique>
+  </a>
+</section>

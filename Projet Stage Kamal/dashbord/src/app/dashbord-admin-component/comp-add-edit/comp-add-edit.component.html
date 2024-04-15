@@ -1,0 +1,73 @@
+<!-- <p>comp-add-edit works!</p> -->
+<div class="container">
+  <div mat-dialog-title>
+    <h1>Formulaire Add User :</h1>
+  </div>
+  <form [formGroup]="AddUserForm" action="" (ngSubmit)="onFormSubmit()" (reset)="onFormReset()">
+    <div mat-dialog-content class="content">
+      <!-- ROW 1 -->
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>Nom</mat-label>
+          <input matInput type="text" placeholder="Ex. Kamal" formControlName="nom" />
+          <mat-error *ngIf="AddUserForm.controls['nom'].errors?.['required']">First Name is Required.</mat-error>
+          <mat-error *ngIf="AddUserForm.controls['nom'].errors?.['minlength']">Minimum Three Characters.</mat-error>
+          <mat-error></mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Prenom</mat-label>
+          <input matInput type="text" placeholder="Ex. Krami" formControlName="prenom" />
+          <mat-error *ngIf="AddUserForm.controls['prenom'].errors?.['required']">Last Name is Required.</mat-error>
+          <mat-error *ngIf="AddUserForm.controls['prenom'].errors?.['minlength']">Minimum Three Characters.</mat-error>
+        </mat-form-field>
+      </div>
+      <!-- ROW 2 -->
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>CIN</mat-label>
+          <input matInput type="text" placeholder="Ex. CD123456" formControlName="cin" />
+          <mat-error *ngIf="AddUserForm.controls['cin'].errors?.['required']">CIN is Required.</mat-error>
+          <mat-error *ngIf="AddUserForm.controls['cin'].errors?.['pattern']">Invalid CIN.</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput type="text" placeholder="Ex. Krami@gmail.com" formControlName="email" />
+          <mat-error *ngIf="AddUserForm.controls['email'].errors?.['required']">Email is Required.</mat-error>
+          <mat-error *ngIf="AddUserForm.controls['email'].errors?.['pattern']">Invalid Email.</mat-error>
+        </mat-form-field>
+      </div>
+      <!-- ROW 3 -->
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>Username</mat-label>
+          <input matInput type="text" placeholder="Ex. Kamal_krami" formControlName="username" />
+          <mat-error *ngIf="AddUserForm.controls['username'].errors?.['required']">Username is Required.</mat-error>
+          <mat-error *ngIf="AddUserForm.controls['username'].errors?.['minlength']">Minimum Eight Characters.</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" placeholder="Ex. kA+mal@_2" formControlName="password" id="input_password" />
+          <button id="button_password" matSuffix mat-icon-button aria-label="Clear" type="button" (click)="ShowPassword()">
+            <mat-icon id="icon_password">visibility_off</mat-icon>
+          </button>
+          <mat-error *ngIf="AddUserForm.controls['password'].errors?.['required']">Password is Required.</mat-error>
+          <mat-error *ngIf="AddUserForm.controls['password'].errors?.['pattern']">Invalid Password.</mat-error>
+        </mat-form-field>
+      </div>
+      <!-- Row 4 -->
+      <div class="row">
+        <mat-radio-group aria-label="Select an option" formControlName="statue_user">
+          <mat-label><b>Statue :</b></mat-label>
+          <mat-radio-button value="User" color="primary" checked>User</mat-radio-button>
+          <mat-radio-button value="Admin" color="primary">Admin</mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+    <div mat-dialog-actions class="action">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!AddUserForm.valid" id="btn">
+        {{data ? 'Update' : 'Ajouter'}}
+      </button>
+      <button mat-raised-button color="warn" type="reset">Annuler</button>
+    </div>
+  </form>
+</div>

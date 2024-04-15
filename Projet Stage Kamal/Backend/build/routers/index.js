@@ -1,0 +1,20 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const user_routre_1 = __importDefault(require("./user/user-routre"));
+const auth_routre_1 = __importDefault(require("./auth/auth-routre"));
+const conge_routre_1 = __importDefault(require("./conge/conge-routre"));
+const table_routre_1 = __importDefault(require("./table/table-routre"));
+const auth_microsoft_1 = __importDefault(require("./auth-microsoft"));
+const user_microsoft_1 = __importDefault(require("./user-microsoft"));
+const mainRouter = (0, express_1.Router)();
+mainRouter.use("/user", user_routre_1.default);
+mainRouter.use("/auth", auth_routre_1.default);
+mainRouter.use("/conge", conge_routre_1.default);
+mainRouter.use("/table", table_routre_1.default);
+mainRouter.use("/auth-microsoft", auth_microsoft_1.default);
+mainRouter.use("/user-microsoft", user_microsoft_1.default);
+exports.default = mainRouter;

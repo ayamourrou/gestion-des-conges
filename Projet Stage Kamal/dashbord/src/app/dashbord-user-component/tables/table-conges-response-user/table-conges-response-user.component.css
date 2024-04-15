@@ -1,0 +1,34 @@
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+table {
+  max-width: 100%;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+  max-width: 95%;
+}
+.mat-elevation-z8 {
+  max-width: 95%;
+  border-radius: 5px;
+}
+
+td,
+th {
+  width: auto;
+}
+
+.th_done {
+  padding-right: 0px;
+  margin-right: 0px;
+  width: 0px;
+}
+
+.btn {
+  margin: 15px 0px 0px 30px;
+  font-size: 17px;
+  padding: 25px 25px 25px 25px;
+  float: right;
+}

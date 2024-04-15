@@ -1,0 +1,70 @@
+<!-- <p>register works!</p> -->
+<div class="b_body">
+    <div class="container">
+        <div mat-dialog-title>
+            <h1>Register Page</h1>
+        </div>
+        <form [formGroup]="registerForm" action="" (ngSubmit)="onRegistersubmit()">
+            <div mat-dialog-content class="content">
+                <!-- ROW 1 -->
+                <div class="row">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Nom</mat-label>
+                        <input matInput type="text" placeholder="Ex. Kamal" formControlName="nom" />
+                        <mat-error *ngIf="registerForm.controls['nom'].errors?.['required']">First Name is Required.</mat-error>
+                        <mat-error *ngIf="registerForm.controls['nom'].errors?.['minlength']">Minimum Three Characters.</mat-error>
+                        <mat-error></mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Prenom</mat-label>
+                        <input matInput type="text" placeholder="Ex. Krami" formControlName="prenom" />
+                        <mat-error *ngIf="registerForm.controls['prenom'].errors?.['required']">Last Name is Required.</mat-error>
+                        <mat-error *ngIf="registerForm.controls['prenom'].errors?.['minlength']">Minimum Three Characters.</mat-error>
+                    </mat-form-field>
+                </div>
+                <!-- ROW 2 -->
+                <div class="row">
+                    <mat-form-field appearance="outline">
+                        <mat-label>CIN</mat-label>
+                        <input matInput type="text" placeholder="Ex. CD123456" formControlName="cin" />
+                        <mat-error *ngIf="registerForm.controls['cin'].errors?.['required']">CIN is Required.</mat-error>
+                        <mat-error *ngIf="registerForm.controls['cin'].errors?.['pattern']">Invalid CIN.</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="text" placeholder="Ex. Krami@gmail.com" formControlName="email" />
+                        <mat-error *ngIf="registerForm.controls['email'].errors?.['required']">Email is Required.</mat-error>
+                        <mat-error *ngIf="registerForm.controls['email'].errors?.['pattern']">Invalid Email.</mat-error>
+                    </mat-form-field>
+                </div>
+                <!-- ROW 3 -->
+                <div class="row">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Username</mat-label>
+                        <input matInput type="text" placeholder="Ex. Kamal_krami" formControlName="username" />
+                        <mat-error *ngIf="registerForm.controls['username'].errors?.['required']">Username is Required.</mat-error>
+                        <mat-error *ngIf="registerForm.controls['username'].errors?.['minlength']">Minimum Eight Characters.</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password" placeholder="Ex. kA+mal@_2" formControlName="password" id="input_password" />
+                        <button id="button_password" *ngIf=" value" matSuffix mat-icon-button aria-label="Clear" type="button" (click)="ShowPassword()">
+                            <mat-icon id="icon_password">visibility_off</mat-icon>
+                        </button>
+                        <mat-error *ngIf="registerForm.controls['password'].errors?.['required']">Password is Required.</mat-error>
+                        <mat-error *ngIf="registerForm.controls['password'].errors?.['pattern']">Invalid Password.</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div mat-dialog-actions class="action">
+                <button style="padding: 25px 62px 25px 62px" mat-raised-button color="primary" type="submit" [disabled]="!registerForm.valid" id="btn">
+                    SignUp
+                </button>
+            </div>
+        </form>
+        <br />
+        <div mat-dialog-content>
+            <i id="log_out" (click)="GoToLOgin()">Already have an account?</i>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+<!-- <p>table-conges-waiting-user works!</p> -->
+<div class="table">
+  <mat-form-field appearance="outline">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Kamal" #input />
+  </mat-form-field>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <!-- ID Column -->
+      <ng-container matColumnDef="id_conge">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ID Conge</th>
+        <td mat-cell *matCellDef="let row">{{ row.id_conge }}</td>
+      </ng-container>
+      <!-- Progress Column -->
+      <ng-container matColumnDef="nom">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Nom</th>
+        <td mat-cell *matCellDef="let row">{{ row.nom }}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="prenom">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Prenom</th>
+        <td mat-cell *matCellDef="let row">{{ row.prenom }}</td>
+      </ng-container>
+
+      <!-- Fruit Column -->
+      <ng-container matColumnDef="statue_conge">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Statue Conge</th>
+        <td mat-cell *matCellDef="let row">{{ row.statue_conge }}</td>
+      </ng-container>
+      <!--  -->
+      <ng-container matColumnDef="dateDebut">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Date Debut</th>
+        <td mat-cell *matCellDef="let row">{{ row.dateDebut | date }}</td>
+      </ng-container>
+      <!--  -->
+      <ng-container matColumnDef="dateFin">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Date Fin</th>
+        <td mat-cell *matCellDef="let row">{{ row.dateFin | date }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">
+          No data matching the filter "{{ input.value }}"
+        </td>
+      </tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    <div>
+      <button class="btn" mat-raised-button color="primary" type="button" id="btn" (click)="ExtraireFichierCSV()">
+        Extraire Fichier CSV
+      </button>
+    </div>
+  </div>
+</div>

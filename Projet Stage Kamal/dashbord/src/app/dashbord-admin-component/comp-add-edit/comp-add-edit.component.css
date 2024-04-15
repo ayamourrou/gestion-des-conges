@@ -1,0 +1,32 @@
+.row {
+  display: flex;
+  gap: 15px;
+  margin-right: 10px;
+}
+.content {
+  padding-top: 10px;
+}
+.row mat-form-field {
+  width: 100%;
+  padding-bottom: 10px;
+}
+.action {
+  padding: 0px 25px 20px;
+}
+.action button {
+  flex: 1;
+}
+h1 {
+  font-size: 25px !important;
+}
+.container {
+  width: auto;
+}
+
+button:disabled,
+button[disabled] {
+  opacity: 0.3;
+  cursor: default;
+  background-color: blue;
+  color: #fff;
+}
